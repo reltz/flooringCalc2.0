@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Flooring calculations</title>
+    <meta charset="utf-8">
+    <style>
+        body {color: black; text-align: center; font-family: Helvetica; background-image: url("plank.jpg"); }
+    #wrapper1, #wrapper2, #wrapper3 {background: #ff9933; color: white; padding-top: 10px; margin-top: 20px; margin-bottom: 20px; width: 900px;
+     border-style: solid; border-color: #cc3300; border-width: 2px; margin-left: auto; margin-right: auto;}
+   .description {text-align: left;}
+    #table1, #table2 {text-align: center; border-width: 20pt; border-color: black; margin-left: 10%; border-style: solid; border:black;}
+    .fields {align-self: center;}
+    #footer {font-size: 14pt; font-family: Helvetica; color: black; margin-left: auto; margin-right: auto; width: 900px;}
+ 
+
+</style>
+    <script src="flooring.js" defer></script>
+</head>
+
+<body>
+
+
+    <h1> Flooring Calculator </h1>
+
+    <div id="wrapper1">
+        <h2> Calculate quantity of boxes needed </h2>
+        <form id="boxes" action="">
+            <table id="table1">
+                <tr>
+                    <td class="description"> Input total measure in square feet: </td>
+                    <td class="fields">
+                        <input type="number" name="enterArea" id="enterArea" value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="description"> Input total square footage of one box:
+                    </td>
+                    <td class="fields">
+                        <input type="number" name="sqperbox" id="sqperbox" value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="description"> Input the price of one box:
+                    </td>
+                    <td class="fields">
+                        <input type="number" name="pricePerBox" id="pricePerBox" value="" />
+                    </td>
+                </tr>
+                <br>
+                </tr>
+            </table>
+            <br>
+            <input type="button" name="boxQuantity" onclick="getRoomMeasure();" value="Calculate" />
+            <br>
+            <div id="boxesCalc"></div>
+
+
+            <br><br>
+        </form>
+    </div>
+
+    <div id="wrapper2">
+
+        <h2> Convert area units</h2>
+        <form id="areaConversion">
+            <table id="table2">
+                <tr>
+                    <td class="description"> Your measure is in which unit? </td>
+                    <td class="fields">
+                        <select name="initialUnit" id="initialUnit">
+                            <option value="SQFT">Square Feets</option>
+                            <option value="SQMT">Square Meters</option>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="amount"> Input total measurement to convert it:
+                    </td>
+                    <td class="fields">
+                        <input type="number" name="amount" id="amount" value="" />
+                    </td>
+                </tr>
+                <br>
+                </tr>
+            </table>
+            <br>
+            <div id="outputConversion"></div>
+
+
+
+
+            <input type="button" name="areaConvert" onclick="convertUnits();" value="Convert Units" />
+            <br><br>
+        </form>
+    </div>
+
+    <div id="wrapper3">
+        <h2> Blind cutter calculation</h2>
+        <form id="blinds" action="">
+            <table id="table3">
+                <tr>
+                    <td class="description"> Input initial size of blind: </td>
+                    <td class="fields">
+                        <input type="number" name="initialSize" id="initialSize" value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="description"> Input total square footage of one box:
+                    </td>
+                    <td class="fields">
+                        <input type="number" name="finalSize" id="finalSize" value="" />
+                    </td>
+                </tr>
+                <br>
+                </tr>
+            </table>
+            <br>
+            <input type="button" name="blindCalc" onclick="cutBlind();" value="Calculate" />
+            <br>
+            <br>
+            <div id="blindOutput"></div>
+
+
+            <br><br>
+        </form>
+
+    </div>
+
+    <div id="footer">
+        <table>
+            <tr>
+                <td id="left">
+                    <h3>github.com/reltz</h3>
+                </td>
+                <td></td><td></td>
+                <td id="right">
+                    <h3> Rodrigo Eltz </h3>
+
+                </td>
+            </tr>
+        </table>
+
+
+    </div>
+
+
+</body>
+
+
+
+</html>
