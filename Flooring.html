@@ -6,12 +6,14 @@
     <meta charset="utf-8">
     <style>
         body {color: black; text-align: center; font-family: Helvetica; background-image: url("plank.jpg"); }
-    #wrapper1, #wrapper2, #wrapper3 {background: #ff9933; color: white; padding-top: 10px; margin-top: 20px; margin-bottom: 20px; width: 900px;
+    #wrapper1, #wrapper2, #wrapper3, #wrapper4 {background: #ff9933; color: white; padding-top: 10px; margin-top: 20px; margin-bottom: 20px; width: 900px;
      border-style: solid; border-color: #cc3300; border-width: 2px; margin-left: auto; margin-right: auto;}
    .description {text-align: left;}
     #table1, #table2 {text-align: center; border-width: 20pt; border-color: black; margin-left: 10%; border-style: solid; border:black;}
     .fields {align-self: center;}
     #footer {font-size: 14pt; font-family: Helvetica; color: black; margin-left: auto; margin-right: auto; width: 900px;}
+	#table4 input {width: 40pt; }
+	
  
 
 </style>
@@ -52,12 +54,14 @@
             </table>
             <br>
             <input type="button" name="boxQuantity" onclick="getRoomMeasure();" value="Calculate" />
+			<input type="reset" value="reset" />
             <br>
             <div id="boxesCalc"></div>
 
 
             <br><br>
         </form>
+
     </div>
 
     <div id="wrapper2">
@@ -90,9 +94,61 @@
 
 
             <input type="button" name="areaConvert" onclick="convertUnits();" value="Convert Units" />
+			<input type="reset" value="reset" />
             <br><br>
         </form>
     </div>
+
+    <div id="wrapper4">
+
+        <h2> Area calculation </h2>
+        <form id="area">
+            <table id="table4">
+                <tr>
+                    <td class="description"> Input first measure in feet and inches: </td>
+                    <td class="fields">
+                        <input type="number" name="feet1" id="feet1" value="0" />
+                        feet and
+                        <input type="number" name="inches1" id="inches1" value="0" /> inches X
+                        <input type="number" name="feet1b" id="feet1b" value="0" />
+                        feet and
+                        <input type="number" name="inches1b" id="inches1b" value="0" /> inches
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="description"> Input second measure in feet and inches: </td>
+                    <td class="fields">
+                        <input type="number" name="feet2" id="feet2" value="0" />
+                        feet and
+                        <input type="number" name="inches2" id="inches2" value="0" /> inches X
+                        <input type="number" name="feet2b" id="feet2b" value="0" /> feet and
+                        <input type="number" name="inches2b" id="inches2b" value="0" /> inches
+                    </td>
+                </tr>
+                <tr>
+                    <td class="description"> Input third measure in feet and inches: </td>
+                    <td class="fields">
+                        <input type="number" name="feet3" id="feet3" value="0" />
+                        feet and
+                        <input type="number" name="inches3" id="inches3" value="0" /> inches X
+                        <input type="number" name="feet3b" id="feet3b" value="0" />
+                        feet and
+                        <input type="number" name="inches3b" id="inches3b" value="0" /> inches
+                    </td>
+                </tr>
+
+            </table>
+            <br>
+           
+            <div id="displayArea"></div>
+
+            <input type="button" name="areaCalc" onclick="myArea();" value="Calculate area" />
+			<input type="reset" value="reset" />
+        </form>
+        <br><br>
+    </div>
+
 
     <div id="wrapper3">
         <h2> Blind cutter calculation</h2>
@@ -116,6 +172,7 @@
             </table>
             <br>
             <input type="button" name="blindCalc" onclick="cutBlind();" value="Calculate" />
+			<input type="reset" value="reset" />
             <br>
             <br>
             <div id="blindOutput"></div>
@@ -132,7 +189,8 @@
                 <td id="left">
                     <h3>github.com/reltz</h3>
                 </td>
-                <td></td><td></td>
+                <td></td>
+                <td></td>
                 <td id="right">
                     <h3> Rodrigo Eltz </h3>
 
