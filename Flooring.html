@@ -11,13 +11,18 @@
    .description {text-align: left;}
     #table1, #table2 {text-align: center; border-width: 20pt; border-color: black; margin-left: 10%; border-style: solid; border:black;}
     .fields {align-self: center;}
-    #footer {font-size: 14pt; font-family: Helvetica; color: black; margin-left: auto; margin-right: auto; width: 900px;}
+    #footer {font-size: 14pt; font-family: Helvetica; color: white; margin-left: auto; margin-right: auto; width: 900px;}
 	#table4 input {width: 40pt; }
-	
+	h1 {color: #cc3300; font-weight:900; }
  
 
 </style>
-    <script src="flooring.js" defer></script>
+    <script defer>
+	var engine =  document.createElement("script");
+	engine.src = "flooring.js?" + Math.random();
+	document.head.appendChild(engine);
+	</script>
+    
 </head>
 
 <body>
@@ -33,6 +38,12 @@
                     <td class="description"> Input total measure in square feet: </td>
                     <td class="fields">
                         <input type="number" name="enterArea" id="enterArea" value="" />
+                    </td>
+                    <td>
+                        
+                        <input type="checkbox" name="tenpercent" id="tenpercent" value=""/>
+                        10% extra margin.
+
                     </td>
                 </tr>
                 <tr>
@@ -73,8 +84,10 @@
                     <td class="description"> Your measure is in which unit? </td>
                     <td class="fields">
                         <select name="initialUnit" id="initialUnit">
-                            <option value="SQFT">Square Feets</option>
+                            <option value="SQFT">Square Feet</option>
                             <option value="SQMT">Square Meters</option>
+                            <option value="SQIN">Square Inches</option>
+                            <option value="SQYA">Square Yards</option>
                     </td>
                 </tr>
                 <tr>
@@ -155,6 +168,16 @@
         <form id="blinds" action="">
             <table id="table3">
                 <tr>
+                    <td class="description">One/two sided cut: </td>
+                    <td class="fields">
+                            <select name="cutsides" id="cutsides">
+                                    <option value="2sided">Two side cut</option>
+                                    <option value="1sided">One side cut</option>
+                                       
+
+                    </td>
+                </tr>
+                <tr>
                     <td class="description"> Input initial size of blind: </td>
                     <td class="fields">
                         <input type="number" name="initialSize" id="initialSize" value="" />
@@ -192,7 +215,7 @@
                 <td></td>
                 <td></td>
                 <td id="right">
-                    <h3> Rodrigo Eltz </h3>
+                    <h3> Rodrigo Eltz  Version 2.1 </h3>
 
                 </td>
             </tr>

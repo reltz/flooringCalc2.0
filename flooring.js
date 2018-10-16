@@ -5,9 +5,16 @@ function getRoomMeasure() { //updated method for V2.0
     var measure = parseFloat(theForm.elements["enterArea"].value);
     var sizeBox = parseFloat(theForm.elements["sqperbox"].value);
     var priceOfBox = parseFloat(theForm.elements["pricePerBox"].value);
-    var boxesNeeded = Math.ceil((measure*1.1)/sizeBox);
+    var margin = theForm.elements["tenpercent"];
+    if (margin.checked==true) {
+        measure=measure*1.1;
+    }
+    
+    var EPSILON = 0.00001;
+    var boxesNeeded = Math.ceil(((measure)/sizeBox)-EPSILON);
     var totalPrice = (boxesNeeded*priceOfBox).toFixed(2);
     var pricePerFoot = (priceOfBox/sizeBox).toFixed(2);
+
     document.getElementById('boxesCalc').innerHTML = 
         "You will need "+boxesNeeded+" boxes and the total cost is $"+
         totalPrice+". Price per square foot is: $"+pricePerFoot;
@@ -19,21 +26,39 @@ function convertUnits() {
     var sqfeet;
     var sqmeter;
     var sqyard;
+    var sqInches;
+
     var printOut;
+
     if (choice.value=="SQFT") {
         sqfeet = amount;
         sqmeter = (amount/10.7639).toFixed(2);
         sqyard = (amount/9).toFixed(2);
-        printOut = amount+" square feet equals to "+sqmeter+
-        " square meters, or "+sqyard+" square yards.";
-
+        sqInches = (amount*144).toFixed(2);
+        
     }
     else if (choice.value=="SQMT") {
         sqmeter= amount;
         sqfeet = (amount*10.7639).toFixed(2);
         sqyard = (amount*0.836127).toFixed(2);
-        printOut= amount+" square meters equals to "+sqfeet+
-        " square feet, or "+sqyard+" square yards."    }
+        sqInches = (sqfeet*144).toFixed(2);
+    }
+
+    else if (choice.value=="SQIN") {
+        sqInches = amount;
+        sqfeet = (sqInches/144).toFixed(2);
+        sqyard = (sqfeet/9).toFixed(2);
+        sqmeter=(sqfeet/10.7639).toFixed(2);
+    }
+
+    else if (choice.value=="SQYA") {
+        sqyard= amount;
+        sqfeet = (sqyard*9).toFixed(2);
+        sqInches = (sqfeet*144).toFixed(2);
+        sqmeter = (sqfeet/10.7639).toFixed(2);
+    }
+
+    printOut = "SqFeet: "+sqfeet+"</br> SqInches: "+sqInches+"</br> SqYards: "+sqyard+"</br> sqMeters: "+sqmeter;
 
     document.getElementById('outputConversion').innerHTML = printOut;
 
@@ -44,10 +69,16 @@ function cutBlind() {
     var theForm = document.forms["blinds"];
     var initialSize = parseFloat(theForm.elements["initialSize"].value);
     var finalSize = parseFloat(theForm.elements["finalSize"].value);
+    var sidescut= theForm.elements["cutsides"];
+    var oneside = (initialSize-finalSize);
     var eachSide = (initialSize - finalSize) / 2;
-
-    printOut="You must cut: "+eachSide.toFixed(2)+" inches from each side.";
-        
+    if (sidescut.value=="2sided") {
+        printOut="You must cut: "+eachSide.toFixed(2)+" inches from each side.";
+    }
+    else if (sidescut.value=="1sided") {
+        printOut="You must cut: "+oneside.toFixed(2)+" from one side.";
+    }
+          
     
     document.getElementById('blindOutput').innerHTML = printOut;
 }
