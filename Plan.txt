@@ -1,0 +1,9 @@
+Plan
+
+October 19th, 2018
+v2.2
+
+added the clear div on reset buttons
+
+
+

@@ -116,3 +116,17 @@ function myArea() {
 
 
 }
+
+function clearBoxes() {
+	document.getElementById('boxesCalc').innerHTML ="";
+}
+function clearConversion() {
+	document.getElementById('outputConversion').innerHTML ="";
+}
+function clearMeasurements() {
+	document.getElementById('displayArea').innerHTML ="";
+}
+
+function clearBlinds() {
+	document.getElementById('blindOutput').innerHTML ="";
+}

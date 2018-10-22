@@ -65,7 +65,7 @@
             </table>
             <br>
             <input type="button" name="boxQuantity" onclick="getRoomMeasure();" value="Calculate" />
-			<input type="reset" value="reset" />
+			<input type="reset" value="reset" onclick="clearBoxes();" />
             <br>
             <div id="boxesCalc"></div>
 
@@ -107,7 +107,7 @@
 
 
             <input type="button" name="areaConvert" onclick="convertUnits();" value="Convert Units" />
-			<input type="reset" value="reset" />
+			<input type="reset" value="reset" onclick="clearConversion();" />
             <br><br>
         </form>
     </div>
@@ -157,7 +157,7 @@
             <div id="displayArea"></div>
 
             <input type="button" name="areaCalc" onclick="myArea();" value="Calculate area" />
-			<input type="reset" value="reset" />
+			<input type="reset" value="reset" onclick="clearMeasurements();"/>
         </form>
         <br><br>
     </div>
@@ -195,7 +195,7 @@
             </table>
             <br>
             <input type="button" name="blindCalc" onclick="cutBlind();" value="Calculate" />
-			<input type="reset" value="reset" />
+			<input type="reset" value="reset" onclick="clearBlinds();"/>
             <br>
             <br>
             <div id="blindOutput"></div>
@@ -215,7 +215,7 @@
                 <td></td>
                 <td></td>
                 <td id="right">
-                    <h3> Rodrigo Eltz  Version 2.1 </h3>
+                    <h3> Rodrigo Eltz  Version 2.2 </h3>
 
                 </td>
             </tr>
