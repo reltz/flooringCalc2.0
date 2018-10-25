@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <title>Flooring calculations</title>
@@ -17,12 +17,12 @@
  
 
 </style>
-    <script defer>
-	var engine =  document.createElement("script");
-	engine.src = "flooring.js?" + Math.random();
-	document.head.appendChild(engine);
-	</script>
-    
+    <script>
+        var engine = document.createElement("script");
+        engine.src = "flooring.js?" + Math.random();
+        document.head.appendChild(engine);
+    </script>
+
 </head>
 
 <body>
@@ -32,7 +32,7 @@
 
     <div id="wrapper1">
         <h2> Calculate quantity of boxes needed </h2>
-        <form id="boxes" action="">
+        <form id="boxes" name="boxes" action="javascript:void(0)" method="post" autocomplete="off">
             <table id="table1">
                 <tr>
                     <td class="description"> Input total measure in square feet: </td>
@@ -40,8 +40,8 @@
                         <input type="number" name="enterArea" id="enterArea" value="" />
                     </td>
                     <td>
-                        
-                        <input type="checkbox" name="tenpercent" id="tenpercent" value=""/>
+
+                        <input type="checkbox" name="tenpercent" id="tenpercent" value="" />
                         10% extra margin.
 
                     </td>
@@ -52,6 +52,7 @@
                     <td class="fields">
                         <input type="number" name="sqperbox" id="sqperbox" value="" />
                     </td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td class="description"> Input the price of one box:
@@ -59,13 +60,12 @@
                     <td class="fields">
                         <input type="number" name="pricePerBox" id="pricePerBox" value="" />
                     </td>
-                </tr>
-                <br>
+                    <td></td>
                 </tr>
             </table>
             <br>
             <input type="button" name="boxQuantity" onclick="getRoomMeasure();" value="Calculate" />
-			<input type="reset" value="reset" onclick="clearBoxes();" />
+            <input type="reset" value="reset" onclick="clearBoxes();" />
             <br>
             <div id="boxesCalc"></div>
 
@@ -78,7 +78,7 @@
     <div id="wrapper2">
 
         <h2> Convert area units</h2>
-        <form id="areaConversion">
+        <form id="areaConversion" name="areaConversion" action="javascript:void(0)" method="post" autocomplete="off">
             <table id="table2">
                 <tr>
                     <td class="description"> Your measure is in which unit? </td>
@@ -88,6 +88,8 @@
                             <option value="SQMT">Square Meters</option>
                             <option value="SQIN">Square Inches</option>
                             <option value="SQYA">Square Yards</option>
+                        
+                        </select>
                     </td>
                 </tr>
                 <tr>
@@ -97,17 +99,12 @@
                         <input type="number" name="amount" id="amount" value="" />
                     </td>
                 </tr>
-                <br>
-                </tr>
+                
             </table>
             <br>
             <div id="outputConversion"></div>
-
-
-
-
             <input type="button" name="areaConvert" onclick="convertUnits();" value="Convert Units" />
-			<input type="reset" value="reset" onclick="clearConversion();" />
+            <input type="reset" value="reset" onclick="clearConversion();" />
             <br><br>
         </form>
     </div>
@@ -115,7 +112,7 @@
     <div id="wrapper4">
 
         <h2> Area calculation </h2>
-        <form id="area">
+        <form id="area" name="area" action="javascript:void(0)" method="post" autocomplete="off">
             <table id="table4">
                 <tr>
                     <td class="description"> Input first measure in feet and inches: </td>
@@ -153,11 +150,11 @@
 
             </table>
             <br>
-           
+
             <div id="displayArea"></div>
 
             <input type="button" name="areaCalc" onclick="myArea();" value="Calculate area" />
-			<input type="reset" value="reset" onclick="clearMeasurements();"/>
+            <input type="reset" value="reset" onclick="clearMeasurements();" />
         </form>
         <br><br>
     </div>
@@ -165,16 +162,16 @@
 
     <div id="wrapper3">
         <h2> Blind cutter calculation</h2>
-        <form id="blinds" action="">
+        <form id="blinds" name="blinds" action="javascript:void(0)" method="post" autocomplete="off">
             <table id="table3">
                 <tr>
                     <td class="description">One/two sided cut: </td>
                     <td class="fields">
-                            <select name="cutsides" id="cutsides">
-                                    <option value="2sided">Two side cut</option>
-                                    <option value="1sided">One side cut</option>
-                                       
+                        <select name="cutsides" id="cutsides">
+                            <option value="2sided">Two side cut</option>
+                            <option value="1sided">One side cut</option>
 
+                        </select>
                     </td>
                 </tr>
                 <tr>
@@ -190,12 +187,11 @@
                         <input type="number" name="finalSize" id="finalSize" value="" />
                     </td>
                 </tr>
-                <br>
-                </tr>
+               
             </table>
             <br>
             <input type="button" name="blindCalc" onclick="cutBlind();" value="Calculate" />
-			<input type="reset" value="reset" onclick="clearBlinds();"/>
+            <input type="reset" value="reset" onclick="clearBlinds();" />
             <br>
             <br>
             <div id="blindOutput"></div>
@@ -215,7 +211,7 @@
                 <td></td>
                 <td></td>
                 <td id="right">
-                    <h3> Rodrigo Eltz  Version 2.2 </h3>
+                    <h3> Rodrigo Eltz Version 2.2 </h3>
 
                 </td>
             </tr>
