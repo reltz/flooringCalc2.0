@@ -58,7 +58,7 @@ function convertUnits() {
         sqmeter = (sqfeet/10.7639).toFixed(2);
     }
 
-    printOut = "SqFeet: "+sqfeet+"</br> SqInches: "+sqInches+"</br> SqYards: "+sqyard+"</br> sqMeters: "+sqmeter;
+    printOut = "SqFeet: "+sqfeet+"</br> SqInches: "+sqInches+"</br> SqYards: "+sqyard+"</br> SqMeters: "+sqmeter;
 
     document.getElementById('outputConversion').innerHTML = printOut;
 
