@@ -16,8 +16,8 @@ function getRoomMeasure() { //updated method for V2.0
     var pricePerFoot = (priceOfBox/sizeBox).toFixed(2);
 
     document.getElementById('boxesCalc').innerHTML = 
-        "You will need "+boxesNeeded+" boxes and the total cost is $"+
-        totalPrice+". Price per square foot is: $"+pricePerFoot;
+        "You need <strong>"+boxesNeeded+" boxes.</strong><br>" + "Cost is <strong>$"+
+        totalPrice+"</strong>.<br> Price per square foot is: <strong>$"+pricePerFoot+"</strong>";
 }
 function convertUnits() {
     var theForm = document.forms["areaConversion"];
