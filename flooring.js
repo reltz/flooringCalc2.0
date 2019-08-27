@@ -1,11 +1,11 @@
 //JS for the flooring page
 
 function getRoomMeasure() { //updated method for V2.0
-    var theForm = document.forms["boxes"];
-    var measure = parseFloat(theForm.elements["enterArea"].value);
-    var sizeBox = parseFloat(theForm.elements["sqperbox"].value);
-    var priceOfBox = parseFloat(theForm.elements["pricePerBox"].value);
-    var margin = theForm.elements["tenpercent"];
+    var theForm = document.forms.boxes;
+    var measure = parseFloat(theForm.elements.enterArea.value);
+    var sizeBox = parseFloat(theForm.elements.sqperbox.value);
+    var priceOfBox = parseFloat(theForm.elements.pricePerBox.value);
+    var margin = theForm.elements.tenpercent;
     if (margin.checked==true) {
         measure=measure*1.1;
     }
@@ -20,9 +20,9 @@ function getRoomMeasure() { //updated method for V2.0
         totalPrice+"</strong>.<br> Price per square foot is: <strong>$"+pricePerFoot+"</strong>";
 }
 function convertUnits() {
-    var theForm = document.forms["areaConversion"];
-    var choice = theForm.elements["initialUnit"];
-    var amount = parseFloat(theForm.elements["amount"].value);
+    var theForm = document.forms.areaConversion;
+    var choice = theForm.elements.initialUnit;
+    var amount = parseFloat(theForm.elements.amount.value);
     var sqfeet;
     var sqmeter;
     var sqyard;
@@ -58,7 +58,10 @@ function convertUnits() {
         sqmeter = (sqfeet/10.7639).toFixed(2);
     }
 
-    printOut = "SqFeet: "+sqfeet+"</br> SqInches: "+sqInches+"</br> SqYards: "+sqyard+"</br> SqMeters: "+sqmeter;
+    printOut = `SqFeet: ${sqfeet} </br> SqInches: ${sqInches} </br> SqYards: ${sqyard} </br> SqMeters: ${sqmeter}`;
+    
+
+ 
 
     document.getElementById('outputConversion').innerHTML = printOut;
 
