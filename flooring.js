@@ -6,7 +6,7 @@ function getRoomMeasure() { //updated method for V2.0
     var sizeBox = parseFloat(theForm.elements.sqperbox.value);
     var priceOfBox = parseFloat(theForm.elements.pricePerBox.value);
     var margin = theForm.elements.tenpercent;
-    if (margin.checked==true) {
+    if (margin.checked===true) {
         measure=measure*1.1;
     }
     
@@ -16,8 +16,8 @@ function getRoomMeasure() { //updated method for V2.0
     var pricePerFoot = (priceOfBox/sizeBox).toFixed(2);
 
     document.getElementById('boxesCalc').innerHTML = 
-        "You need <strong>"+boxesNeeded+" boxes.</strong><br>" + "Cost is <strong>$"+
-        totalPrice+"</strong>.<br> Price per square foot is: <strong>$"+pricePerFoot+"</strong>";
+        `You need <strong> ${boxesNeeded} boxes. </strong><br> Cost is <strong>$ ${totalPrice}
+        </strong>. <br> Price per square foot is: <strong>$ ${pricePerFoot} </strong>`;
 }
 function convertUnits() {
     var theForm = document.forms.areaConversion;
@@ -30,28 +30,28 @@ function convertUnits() {
 
     var printOut;
 
-    if (choice.value=="SQFT") {
+    if (choice.value==="SQFT") {
         sqfeet = amount;
         sqmeter = (amount/10.7639).toFixed(2);
         sqyard = (amount/9).toFixed(2);
         sqInches = (amount*144).toFixed(2);
         
     }
-    else if (choice.value=="SQMT") {
+    else if (choice.value==="SQMT") {
         sqmeter= amount;
         sqfeet = (amount*10.7639).toFixed(2);
         sqyard = (amount*0.836127).toFixed(2);
         sqInches = (sqfeet*144).toFixed(2);
     }
 
-    else if (choice.value=="SQIN") {
+    else if (choice.value==="SQIN") {
         sqInches = amount;
         sqfeet = (sqInches/144).toFixed(2);
         sqyard = (sqfeet/9).toFixed(2);
         sqmeter=(sqfeet/10.7639).toFixed(2);
     }
 
-    else if (choice.value=="SQYA") {
+    else if (choice.value==="SQYA") {
         sqyard= amount;
         sqfeet = (sqyard*9).toFixed(2);
         sqInches = (sqfeet*144).toFixed(2);
@@ -70,16 +70,16 @@ function convertUnits() {
 
 function cutBlind() {
     var theForm = document.forms["blinds"];
-    var initialSize = parseFloat(theForm.elements["initialSize"].value);
-    var finalSize = parseFloat(theForm.elements["finalSize"].value);
-    var sidescut= theForm.elements["cutsides"];
+    var initialSize = parseFloat(theForm.elements.initialSize.value);
+    var finalSize = parseFloat(theForm.elements.finalSize.value);
+    var sidescut= theForm.elements.cutsides;
     var oneside = (initialSize-finalSize);
     var eachSide = (initialSize - finalSize) / 2;
-    if (sidescut.value=="2sided") {
-        printOut="You must cut: "+eachSide.toFixed(2)+" inches from each side.";
+    if (sidescut.value==="2sided") {
+        printOut=`You must cut: ${eachSide.toFixed(2)} inches from each side.`;
     }
-    else if (sidescut.value=="1sided") {
-        printOut="You must cut: "+oneside.toFixed(2)+" from one side.";
+    else if (sidescut.value==="1sided") {
+        printOut=`You must cut: ${oneside.toFixed(2)} from one side.`;
     }
           
     
@@ -87,19 +87,19 @@ function cutBlind() {
 }
 
 function myArea() {
-    var theForm = document.forms["area"];
-    var feet1=parseFloat(theForm.elements["feet1"].value);
-    var inches1=parseFloat(theForm.elements["inches1"].value);
-    var feet1b=parseFloat(theForm.elements["feet1b"].value);
-    var inches1b=parseFloat(theForm.elements["inches1b"].value);  
-    var feet2=parseFloat(theForm.elements["feet2"].value);  
-    var inches2=parseFloat(theForm.elements["inches2"].value); 
-    var feet2b=parseFloat(theForm.elements["feet2b"].value); 
-    var inches2b=parseFloat(theForm.elements["inches2b"].value); 
-    var feet3=parseFloat(theForm.elements["feet3"].value);
-    var inches3=parseFloat(theForm.elements["inches3"].value);
-    var feet3b=parseFloat(theForm.elements["feet3b"].value);
-    var inches3b=parseFloat(theForm.elements["inches3b"].value); 
+    var theForm = document.forms.area;
+    var feet1=parseFloat(theForm.elements.feet1.value);
+    var inches1=parseFloat(theForm.elements.inches1.value);
+    var feet1b=parseFloat(theForm.elements.feet1b.value);
+    var inches1b=parseFloat(theForm.elements.inches1b.value);  
+    var feet2=parseFloat(theForm.elements.feet2.value);  
+    var inches2=parseFloat(theForm.elements.inches2.value); 
+    var feet2b=parseFloat(theForm.elements.feet2b.value); 
+    var inches2b=parseFloat(theForm.elements.inches2b.value); 
+    var feet3=parseFloat(theForm.elements.feet3.value);
+    var inches3=parseFloat(theForm.elements.inches3.value);
+    var feet3b=parseFloat(theForm.elements.feet3b.value);
+    var inches3b=parseFloat(theForm.elements.inches3b.value); 
     
     
 
@@ -111,7 +111,7 @@ function myArea() {
     var totalArea= area1+area2+area3;
 
 
-    var display1="Total area: "+totalArea.toFixed(2)+" square feet";
+    var display1=`Total area: ${totalArea.toFixed(2)} square feet`;
 
     
     document.getElementById('displayArea').innerHTML = ""+display1;
