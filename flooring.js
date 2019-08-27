@@ -69,7 +69,7 @@ function convertUnits() {
 }
 
 function cutBlind() {
-    var theForm = document.forms["blinds"];
+    var theForm = document.forms.blinds;
     var initialSize = parseFloat(theForm.elements.initialSize.value);
     var finalSize = parseFloat(theForm.elements.finalSize.value);
     var sidescut= theForm.elements.cutsides;
